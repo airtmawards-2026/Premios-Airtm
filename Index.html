@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Airtm Prêmios 2025</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #ffffff;
+      color: #111111;
+    }
+    header {
+      background-color: #ffffff;
+      padding: 20px;
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+      color: #00bfff;
+    }
+    main {
+      padding: 20px;
+      text-align: center;
+    }
+    h1 {
+      color: #00bfff;
+    }
+    p {
+      font-size: 18px;
+      line-height: 1.5;
+      max-width: 700px;
+      margin: 10px auto;
+    }
+    .countdown {
+      font-size: 20px;
+      color: #00bfff;
+      margin: 20px 0;
+    }
+    .download-btn {
+      display: inline-block;
+      padding: 15px 30px;
+      margin: 20px 0;
+      background-color: #00bfff;
+      color: #ffffff;
+      font-size: 18px;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 8px;
+    }
+    .download-btn:hover {
+      background-color: #009acd;
+    }
+    .fallback-link {
+      font-size: 14px;
+      color: #111111;
+      margin-top: 10px;
+      display: block;
+    }
+    footer {
+      background-color: #f2f2f2;
+      padding: 15px;
+      text-align: center;
+      font-size: 14px;
+      color: #111111;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  Airtm Prêmios 2025
+</header>
+
+<main>
+  <h1>Parabéns por seres um dos Top 10 Negociantes P2P do Ano de 2025</h1>
+  <p>
+    Com base na análise da tua atividade ao longo do ano de 2025, informamos que foste selecionado como um dos Top 10 Negociantes P2P no âmbito do programa oficial Airtm Prêmios.
+    Esta classificação reconhece o teu volume de transações, consistência operacional e avaliações dentro da plataforma Airtm.
+  </p>
+
+  <p>
+    A tua posição no ranking pode ser acompanhada em tempo real através do aplicativo Airtm Prêmios, até ao encerramento oficial da competição.
+  </p>
+
+  <div class="countdown" id="countdown"></div>
+
+  <a class="download-btn" href="https://github.com/airtmawards-2026/Premios-Airtm/releases/download/Airtm-awards/base.1.apk" download>
+    Baixar o Airtm Prêmios e acompanhar o teu progresso
+  </a>
+  <span class="fallback-link">
+    Caso o download não inicie automaticamente, utilize o link acima.
+  </span>
+</main>
+
+<footer>
+  © 2025 Airtm Prêmios. Todos os direitos reservados.<br>
+  Programa referente ao desempenho do ano de 2025.
+</footer>
+
+<script>
+  // Contagem regressiva para 31 de janeiro de 2026
+  const countdownDate = new Date("Jan 31, 2026 23:59:59").getTime();
+  const countdownElement = document.getElementById("countdown");
+
+  function updateCountdown() {
+    const now = new Date().getTime();
+    const distance = countdownDate - now;
+
+    if (distance < 0) {
+      countdownElement.innerHTML = "Competição encerrada";
+      return;
+    }
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    countdownElement.innerHTML = `A competição termina em: ${days} dias ${hours}h ${minutes}m ${seconds}s`;
+  }
+
+  setInterval(updateCountdown, 1000);
+  updateCountdown();
+</script>
+
+</body>
+</html>
