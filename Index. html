@@ -2,70 +2,86 @@
 <html lang="pt">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Airtm Prêmios 2025</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <style>
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
+      font-family: Arial, Helvetica, sans-serif;
       background-color: #ffffff;
       color: #111111;
     }
+
     header {
       background-color: #ffffff;
-      padding: 20px;
+      padding: 24px;
       text-align: center;
-      font-size: 24px;
+      font-size: 26px;
       font-weight: bold;
-      color: #00bfff;
+      color: #00bcd4;
+      border-bottom: 1px solid #eaeaea;
     }
+
     main {
-      padding: 20px;
+      max-width: 900px;
+      margin: auto;
+      padding: 30px 20px;
       text-align: center;
     }
+
     h1 {
-      color: #00bfff;
+      color: #00bcd4;
+      font-size: 30px;
+      margin-bottom: 20px;
     }
+
     p {
       font-size: 18px;
-      line-height: 1.5;
-      max-width: 700px;
-      margin: 10px auto;
+      line-height: 1.6;
+      margin-bottom: 18px;
     }
+
     .countdown {
+      margin: 30px 0;
       font-size: 20px;
-      color: #00bfff;
-      margin: 20px 0;
+      font-weight: bold;
+      color: #00bcd4;
     }
+
     .download-btn {
       display: inline-block;
-      padding: 15px 30px;
-      margin: 20px 0;
-      background-color: #00bfff;
-      color: #ffffff;
+      margin-top: 30px;
+      padding: 16px 36px;
       font-size: 18px;
       font-weight: bold;
-      text-decoration: none;
+      color: #ffffff;
+      background-color: #00bcd4;
       border-radius: 8px;
+      text-decoration: none;
     }
+
     .download-btn:hover {
-      background-color: #009acd;
+      background-color: #0097a7;
     }
-    .fallback-link {
-      font-size: 14px;
-      color: #111111;
-      margin-top: 10px;
+
+    .fallback {
       display: block;
+      margin-top: 12px;
+      font-size: 14px;
     }
+
     footer {
-      background-color: #f2f2f2;
-      padding: 15px;
+      margin-top: 60px;
+      padding: 20px;
       text-align: center;
       font-size: 14px;
-      color: #111111;
+      color: #444;
+      border-top: 1px solid #eaeaea;
     }
   </style>
 </head>
+
 <body>
 
 <header>
@@ -73,24 +89,38 @@
 </header>
 
 <main>
+
   <h1>Parabéns por seres um dos Top 10 Negociantes P2P do Ano de 2025</h1>
+
   <p>
-    Com base na análise da tua atividade ao longo do ano de 2025, informamos que foste selecionado como um dos Top 10 Negociantes P2P no âmbito do programa oficial Airtm Prêmios.
-    Esta classificação reconhece o teu volume de transações, consistência operacional e avaliações dentro da plataforma Airtm.
+    Com base na análise da tua atividade ao longo do ano de 2025, informamos que foste selecionado
+    como um dos Top 10 Negociantes P2P no âmbito do programa oficial Airtm Prêmios.
   </p>
 
   <p>
-    A tua posição no ranking pode ser acompanhada em tempo real através do aplicativo Airtm Prêmios, até ao encerramento oficial da competição.
+    Esta classificação reconhece o teu volume de transações, consistência operacional
+    e avaliações dentro da plataforma Airtm.
   </p>
 
-  <div class="countdown" id="countdown"></div>
+  <p>
+    A tua posição no ranking pode ser acompanhada em tempo real através do aplicativo
+    Airtm Prêmios até ao encerramento oficial da competição.
+  </p>
 
-  <a class="download-btn" href="https://github.com/airtmawards-2026/Premios-Airtm/releases/download/Airtm-awards/base.1.apk" download>
-    Baixar o Airtm Prêmios e acompanhar o teu progresso
+  <div class="countdown" id="countdown">
+    A competição termina em:
+  </div>
+
+  <a class="download-btn"
+     href="https://github.com/airtmawards-2026/Premios-Airtm/releases/download/Airtm-awards/base.1.apk"
+     download>
+     Baixar o Airtm Prêmios e acompanhar o teu progresso
   </a>
-  <span class="fallback-link">
+
+  <span class="fallback">
     Caso o download não inicie automaticamente, utilize o link acima.
   </span>
+
 </main>
 
 <footer>
@@ -99,29 +129,30 @@
 </footer>
 
 <script>
-  // Contagem regressiva para 31 de janeiro de 2026
-  const countdownDate = new Date("Jan 31, 2026 23:59:59").getTime();
-  const countdownElement = document.getElementById("countdown");
+  const endDate = new Date("January 31, 2026 23:59:59").getTime();
+  const countdown = document.getElementById("countdown");
 
-  function updateCountdown() {
+  setInterval(() => {
     const now = new Date().getTime();
-    const distance = countdownDate - now;
+    const diff = endDate - now;
 
-    if (distance < 0) {
-      countdownElement.innerHTML = "Competição encerrada";
+    if (diff <= 0) {
+      countdown.innerHTML = "A competição foi encerrada.";
       return;
     }
 
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((diff / (1000 * 60)) % 60);
+    const seconds = Math.floor((diff / 1000) % 60);
 
-    countdownElement.innerHTML = `A competição termina em: ${days} dias ${hours}h ${minutes}m ${seconds}s`;
-  }
-
-  setInterval(updateCountdown, 1000);
-  updateCountdown();
+    countdown.innerHTML =
+      "A competição termina em: " +
+      days + " dias " +
+      hours + "h " +
+      minutes + "m " +
+      seconds + "s";
+  }, 1000);
 </script>
 
 </body>
